@@ -165,8 +165,8 @@ function ExhibitionStage({
   const focusHotspotId = hoveredHotspotId ?? activeHotspotId;
 
   return (
-    <div className="relative h-full min-h-[14rem] w-full sm:min-h-[18rem] lg:min-h-full">
-      <div className="relative h-full min-h-[14rem] w-full overflow-hidden bg-surface sm:min-h-[18rem] lg:absolute lg:inset-0 lg:min-h-0">
+    <div className="relative h-full min-h-[16rem] w-full sm:min-h-[18rem] lg:min-h-full">
+      <div className="relative h-full min-h-[16rem] w-full overflow-hidden bg-surface sm:min-h-[18rem] lg:absolute lg:inset-0 lg:min-h-0">
         <div className="hero-edge-fade absolute inset-0">
           <Image
             key={`${layerId}-base-${baseSrc}`}
@@ -234,7 +234,7 @@ function ExhibitionStage({
                   />
                 </span>
                 {showTooltip ? (
-                  <div id={`${hotspot.id}-tip`}>
+                  <div id={`${hotspot.id}-tip`} className="hidden md:block">
                     <HotspotTooltip
                       hotspot={hotspot}
                       preferAbove={preferAbove}

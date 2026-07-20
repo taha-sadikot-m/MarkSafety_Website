@@ -67,7 +67,7 @@ export function ContactForm({ mode = "contact" }: ContactFormProps) {
     "mt-1.5 h-12 w-full rounded-[4px] border border-border bg-white px-3 text-charcoal outline-none transition focus:border-crimson";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 rounded-[4px] border border-border bg-white p-6 md:p-8">
+    <form onSubmit={handleSubmit} className="w-full max-w-full space-y-4 rounded-[4px] border border-border bg-white p-4 sm:p-6 md:p-8">
       <div>
         <label htmlFor="name" className="text-sm font-medium text-charcoal">
           Name

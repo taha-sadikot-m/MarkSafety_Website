@@ -25,9 +25,9 @@ export function DirectorCallout() {
       </div>
 
       <div className="container-site relative z-10">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(260px,0.9fr)_minmax(340px,1.2fr)_minmax(260px,0.95fr)] lg:gap-0 xl:grid-cols-[minmax(280px,0.85fr)_minmax(400px,1.25fr)_minmax(280px,0.9fr)]">
+        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[minmax(260px,0.9fr)_minmax(340px,1.2fr)_minmax(260px,0.95fr)] lg:gap-0 xl:grid-cols-[minmax(280px,0.85fr)_minmax(400px,1.25fr)_minmax(280px,0.9fr)]">
           {/* Left — philosophy type */}
-          <Reveal className="relative z-20 lg:-mr-6 xl:-mr-10">
+          <Reveal className="relative z-20 order-1 lg:order-none lg:-mr-6 xl:-mr-10">
             <div className="max-w-[18rem] sm:max-w-[20rem] lg:max-w-[22rem]">
               <div className="flex items-center gap-3">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-crimson md:text-[12px]">
@@ -36,7 +36,7 @@ export function DirectorCallout() {
                 <span className="h-px w-9 shrink-0 bg-crimson" aria-hidden />
               </div>
 
-              <h2 className="font-condensed mt-4 text-[clamp(3rem,6.2vw,5rem)] font-bold uppercase leading-[0.85] tracking-[-0.01em] text-black">
+              <h2 className="font-condensed mt-4 text-[clamp(2.5rem,11vw,5rem)] font-bold uppercase leading-[0.85] tracking-[-0.01em] text-black sm:text-[clamp(3rem,6.2vw,5rem)]">
                 <span className="block">{lead}</span>
                 <span className="block text-crimson">{accent}</span>
                 <span className="block">{trail}</span>
@@ -52,8 +52,8 @@ export function DirectorCallout() {
           </Reveal>
 
           {/* Center — large overlapping portrait */}
-          <Reveal delayMs={50} className="relative z-10">
-            <div className="relative mx-auto w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[520px] lg:-mx-2">
+          <Reveal delayMs={50} className="relative z-10 order-3 lg:order-none">
+            <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[520px] lg:-mx-2">
               <div className="relative aspect-[584/784] w-full">
                 <Image
                   src={company.directorPortrait.src}
@@ -68,7 +68,7 @@ export function DirectorCallout() {
           </Reveal>
 
           {/* Right — quote + signature */}
-          <Reveal delayMs={100} className="relative z-20 lg:-ml-4 xl:-ml-6">
+          <Reveal delayMs={100} className="relative z-20 order-2 lg:order-none lg:-ml-4 xl:-ml-6">
             <div className="max-w-[20rem] sm:max-w-[22rem] lg:ml-auto lg:max-w-[24rem]">
               <p
                 className="select-none text-[3.75rem] font-bold leading-[0.7] text-crimson md:text-[4.75rem]"

@@ -38,12 +38,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: clip;
 }
 
 .font-display {
@@ -104,7 +106,13 @@ body {
   width: 100%;
   max-width: 1400px;
   margin-inline: auto;
-  padding-inline: 1.25rem;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 480px) {
+  .container-site {
+    padding-inline: 1.25rem;
+  }
 }
 
 @media (min-width: 768px) {

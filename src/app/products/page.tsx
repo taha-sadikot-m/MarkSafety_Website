@@ -30,10 +30,10 @@ export default function ProductsPage() {
             <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-crimson">
               Complete Product Range
             </p>
-            <h1 className="font-display mt-3 max-w-3xl text-4xl font-bold text-charcoal md:text-5xl">
+            <h1 className="font-display mt-3 max-w-3xl text-3xl font-bold text-charcoal sm:text-4xl md:text-5xl">
               Find the Right Protection for Your Industry
             </h1>
-            <p className="mt-4 max-w-2xl text-lg text-muted">
+            <p className="mt-4 max-w-2xl text-base text-muted sm:text-lg">
               Select your industry below. Click any body zone to explore the exact
               products your workers need.
             </p>

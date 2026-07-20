@@ -26,29 +26,29 @@ export function HeroSection() {
         />
 
         <div className="relative z-10 flex h-full w-full flex-col">
-          <div className="container-site flex flex-1 flex-col justify-center pb-20 pt-28 md:pb-24 md:pt-32">
+          <div className="container-site flex flex-1 flex-col justify-center pb-16 pt-24 sm:pb-20 sm:pt-28 md:pb-24 md:pt-32">
             <div className="max-w-2xl">
               <div className="flex items-center gap-3">
                 <span className="h-4 w-0.5 shrink-0 bg-crimson" aria-hidden />
-                <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-crimson md:text-[13px]">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-crimson sm:text-[12px] md:text-[13px]">
                   Engineering Precision Since {company.founded}
                 </p>
               </div>
 
-              <h1 className="font-display mt-6 text-5xl font-bold leading-[1.08] text-white md:text-6xl lg:text-7xl">
+              <h1 className="font-display mt-5 text-4xl font-bold leading-[1.08] text-white sm:mt-6 sm:text-5xl md:text-6xl lg:text-7xl">
                 The Standard of
                 <br />
                 <em className="italic">Protection.</em>
               </h1>
 
-              <p className="mt-6 max-w-lg text-base leading-relaxed text-white/80 md:text-lg">
+              <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/80 sm:mt-6 sm:text-base md:text-lg">
                 Mark Safety partners with India&apos;s leading industries to
                 deliver complete workplace safety through industrial products,
                 engineering expertise, compliance services, and technical
                 training.
               </p>
 
-              <div className="mt-10 flex flex-wrap items-center gap-6">
+              <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10 sm:gap-6">
                 <Button
                   href="/products"
                   variant="primary"

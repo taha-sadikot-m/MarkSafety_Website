@@ -20,7 +20,7 @@ export default function QuotePage() {
 
       <section className="bg-crimson-stripe py-10 md:py-12">
         <div className="container-site">
-          <h1 className="font-display text-4xl font-bold text-white md:text-5xl">
+          <h1 className="font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
             Get a Quote
           </h1>
           <p className="mt-3 max-w-xl text-white/80">

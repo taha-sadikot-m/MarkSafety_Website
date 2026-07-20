@@ -25,6 +25,15 @@ export function StickyNav() {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
   const overHero = isHome && !scrolled && !open;
 
   return (
@@ -99,8 +108,11 @@ export function StickyNav() {
       </div>
 
       {open ? (
-        <div className="border-t border-border bg-white lg:hidden">
-          <nav className="container-site flex flex-col gap-1 py-4" aria-label="Mobile">
+        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-white md:max-h-[calc(100dvh-72px)] lg:hidden">
+          <nav
+            className="container-site flex flex-col gap-1 py-4 pb-8"
+            aria-label="Mobile"
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.href}

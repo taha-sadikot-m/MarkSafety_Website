@@ -81,65 +81,110 @@ export function WhyChooseUs() {
           <div className="relative">
             <span
               aria-hidden
-              className="pointer-events-none absolute -top-6 right-2 z-0 select-none font-display text-[140px] font-bold leading-none tracking-tight text-charcoal/[0.045] sm:text-[160px] md:-top-10 md:right-4 md:text-[200px] lg:text-[220px]"
+              className="pointer-events-none absolute -top-6 right-2 z-0 select-none font-display text-[100px] font-bold leading-none tracking-tight text-charcoal/[0.045] sm:text-[140px] md:-top-10 md:right-4 md:text-[200px] lg:text-[220px]"
             >
               30
             </span>
 
-            <div className="-mx-1 overflow-x-auto px-1 pb-2 [scrollbar-width:thin]">
-              <div className="relative z-10 min-w-[760px] px-1 md:min-w-[880px] lg:min-w-0">
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute top-[3.25rem] right-4 left-4 h-px bg-charcoal/15"
-                />
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute top-[3.1rem] right-1 border-y-[5px] border-l-[7px] border-y-transparent border-l-charcoal/25"
-                />
+            {/* Mobile / tablet — vertical timeline (no forced min-width) */}
+            <ol className="relative z-10 list-none space-y-0 lg:hidden">
+              {journeyMilestones.map((milestone, index) => {
+                const Icon = milestoneIcons[milestone.icon];
+                const isHighlight = milestone.highlight;
+                const isLast = index === journeyMilestones.length - 1;
 
-                <ol className="relative flex list-none justify-between">
-                  {journeyMilestones.map((milestone, index) => {
-                    const Icon = milestoneIcons[milestone.icon];
-                    const isHighlight = milestone.highlight;
-
-                    return (
-                      <li
-                        key={milestone.year}
-                        className="flex w-[118px] shrink-0 flex-col items-center text-center md:w-[128px]"
+                return (
+                  <li key={milestone.year} className="relative flex gap-4">
+                    <div className="flex w-12 shrink-0 flex-col items-center self-stretch">
+                      <div
+                        className={`relative z-10 flex size-11 shrink-0 items-center justify-center rounded-full border ${
+                          isHighlight
+                            ? "border-crimson bg-crimson text-white shadow-[0_0_0_4px_rgba(192,0,29,0.1)]"
+                            : "border-crimson/50 bg-white text-charcoal"
+                        }`}
                       >
-                        <Reveal delayMs={index * 50}>
-                          <div className="flex flex-col items-center">
-                            <p className="h-5 text-[13px] font-medium leading-5 tracking-wide text-crimson">
-                              {milestone.year}
-                            </p>
+                        <Icon className="size-4" strokeWidth={1.25} />
+                      </div>
+                      {!isLast ? (
+                        <span
+                          aria-hidden
+                          className="mt-1 w-px flex-1 bg-charcoal/15"
+                        />
+                      ) : null}
+                    </div>
+                    <Reveal delayMs={index * 50} className="min-w-0 flex-1 pb-8">
+                      <p className="text-[13px] font-medium tracking-wide text-crimson">
+                        {milestone.year}
+                      </p>
+                      <h3
+                        className={`mt-1 text-xs font-bold uppercase tracking-[0.08em] ${
+                          isHighlight ? "text-crimson" : "text-charcoal"
+                        }`}
+                      >
+                        {milestone.title}
+                      </h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-muted">
+                        {milestone.description}
+                      </p>
+                    </Reveal>
+                  </li>
+                );
+              })}
+            </ol>
 
-                            <div
-                              className={`relative z-10 mt-2 flex size-12 items-center justify-center rounded-full border ${
-                                isHighlight
-                                  ? "border-crimson bg-crimson text-white shadow-[0_0_0_4px_rgba(192,0,29,0.1)]"
-                                  : "border-crimson/50 bg-white text-charcoal"
-                              }`}
-                            >
-                              <Icon className="size-5" strokeWidth={1.25} />
-                            </div>
+            {/* Desktop — horizontal timeline */}
+            <div className="relative z-10 hidden px-1 lg:block">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute top-[3.25rem] right-4 left-4 h-px bg-charcoal/15"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute top-[3.1rem] right-1 border-y-[5px] border-l-[7px] border-y-transparent border-l-charcoal/25"
+              />
 
-                            <h3
-                              className={`mt-3.5 text-[11px] font-bold uppercase tracking-[0.08em] md:text-xs ${
-                                isHighlight ? "text-crimson" : "text-charcoal"
-                              }`}
-                            >
-                              {milestone.title}
-                            </h3>
-                            <p className="mt-1.5 min-h-[2.7em] max-w-[112px] text-[11px] leading-[1.35] text-muted md:max-w-[118px]">
-                              {milestone.description}
-                            </p>
+              <ol className="relative flex list-none justify-between">
+                {journeyMilestones.map((milestone, index) => {
+                  const Icon = milestoneIcons[milestone.icon];
+                  const isHighlight = milestone.highlight;
+
+                  return (
+                    <li
+                      key={milestone.year}
+                      className="flex w-[118px] shrink-0 flex-col items-center text-center md:w-[128px]"
+                    >
+                      <Reveal delayMs={index * 50}>
+                        <div className="flex flex-col items-center">
+                          <p className="h-5 text-[13px] font-medium leading-5 tracking-wide text-crimson">
+                            {milestone.year}
+                          </p>
+
+                          <div
+                            className={`relative z-10 mt-2 flex size-12 items-center justify-center rounded-full border ${
+                              isHighlight
+                                ? "border-crimson bg-crimson text-white shadow-[0_0_0_4px_rgba(192,0,29,0.1)]"
+                                : "border-crimson/50 bg-white text-charcoal"
+                            }`}
+                          >
+                            <Icon className="size-5" strokeWidth={1.25} />
                           </div>
-                        </Reveal>
-                      </li>
-                    );
-                  })}
-                </ol>
-              </div>
+
+                          <h3
+                            className={`mt-3.5 text-[11px] font-bold uppercase tracking-[0.08em] md:text-xs ${
+                              isHighlight ? "text-crimson" : "text-charcoal"
+                            }`}
+                          >
+                            {milestone.title}
+                          </h3>
+                          <p className="mt-1.5 min-h-[2.7em] max-w-[112px] text-[11px] leading-[1.35] text-muted md:max-w-[118px]">
+                            {milestone.description}
+                          </p>
+                        </div>
+                      </Reveal>
+                    </li>
+                  );
+                })}
+              </ol>
             </div>
           </div>
         </div>

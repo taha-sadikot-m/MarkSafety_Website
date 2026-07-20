@@ -157,7 +157,7 @@ export function CompanyIntro() {
           </div>
         </div>
 
-        <div className="relative min-h-[520px] w-full lg:min-h-[680px]">
+        <div className="relative min-h-[280px] max-h-[42vh] w-full lg:max-h-none lg:min-h-[680px]">
           <div className="intro-photo-merge absolute inset-0">
             <Image
               src={introImage.src}

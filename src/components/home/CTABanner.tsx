@@ -18,19 +18,19 @@ export function CTABanner() {
       <div className="container-site relative z-10">
         <Reveal>
           <div className="max-w-3xl">
-            <h2 className="font-display text-3xl font-bold text-white md:text-5xl">
+            <h2 className="font-display text-3xl font-bold text-white sm:text-3xl md:text-5xl">
               Let&apos;s Build A Safer Workplace Together.
             </h2>
-            <p className="mt-5 text-lg text-white/75">
+            <p className="mt-5 text-base text-white/75 sm:text-lg">
               Whether you&apos;re upgrading workplace safety, planning a new
               facility, or improving compliance, our specialists are ready to
               help.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/quote" variant="primary" size="lg">
+            <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+              <Button href="/quote" variant="primary" size="lg" className="w-full sm:w-auto">
                 Request a Quote
               </Button>
-              <Button href="/contact" variant="ghost-light" size="lg">
+              <Button href="/contact" variant="ghost-light" size="lg" className="w-full sm:w-auto">
                 Talk To Our Expert
               </Button>
             </div>

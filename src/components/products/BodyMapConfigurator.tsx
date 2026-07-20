@@ -76,8 +76,8 @@ export function BodyMapConfigurator() {
   return (
     <div>
       {/* Industry selector */}
-      <div className="overflow-x-auto pb-2">
-        <div className="flex min-w-max gap-3">
+      <div className="-mx-1 overflow-x-auto px-1 pb-2 [scrollbar-width:thin]">
+        <div className="flex w-max min-w-0 gap-2 sm:gap-3">
           {industries.map((item) => {
             const Icon = iconMap[item.icon as keyof typeof iconMap] ?? Cog;
             const selected = item.id === industryId;
@@ -86,16 +86,15 @@ export function BodyMapConfigurator() {
                 key={item.id}
                 type="button"
                 onClick={() => setIndustryId(item.id)}
-                className={`flex min-w-[110px] flex-col items-center gap-2 rounded-[4px] border px-4 py-3 transition-all ${
+                className={`flex min-w-[88px] flex-col items-center gap-1.5 rounded-[4px] border px-3 py-2.5 transition-all sm:min-w-[110px] sm:gap-2 sm:px-4 sm:py-3 ${
                   selected
                     ? "border-crimson bg-crimson text-white shadow-md"
                     : "border-border bg-white text-charcoal hover:border-crimson/40"
                 }`}
               >
-                <Icon className="size-5" strokeWidth={1.5} />
-                <span className="text-xs font-semibold sm:text-sm">
-                  <span className="sm:hidden">{item.shortLabel}</span>
-                  <span className="hidden sm:inline">{item.shortLabel}</span>
+                <Icon className="size-4 sm:size-5" strokeWidth={1.5} />
+                <span className="text-[11px] font-semibold sm:text-sm">
+                  {item.shortLabel}
                 </span>
               </button>
             );
@@ -110,7 +109,7 @@ export function BodyMapConfigurator() {
             activeZone ? "lg:grid-cols-[45%_55%]" : "grid-cols-1"
           }`}
         >
-          <div className="relative min-h-[520px] px-4 py-8 md:px-8">
+          <div className="relative min-h-[420px] px-3 py-6 sm:min-h-[480px] sm:px-4 sm:py-8 md:min-h-[520px] md:px-8">
             <div
               className="pointer-events-none absolute inset-0 opacity-[0.03]"
               aria-hidden
@@ -120,7 +119,7 @@ export function BodyMapConfigurator() {
               }}
             />
 
-            <div className="relative mx-auto max-w-[360px]">
+            <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[360px]">
               <HumanFigure industry={industryId} />
 
               {bodyZones.map((zone) => {
@@ -270,7 +269,7 @@ export function BodyMapConfigurator() {
             aria-label="Dismiss"
             onClick={() => setActiveZone(null)}
           />
-          <div className="relative max-h-[75vh] overflow-hidden rounded-t-xl bg-crimson-tint shadow-2xl">
+          <div className="relative max-h-[75vh] overflow-hidden rounded-t-xl bg-crimson-tint pb-[env(safe-area-inset-bottom,0px)] shadow-2xl">
             <div className="card-accent flex items-start justify-between border-b border-border p-4">
               <div>
                 <h3 className="font-display text-xl font-bold text-charcoal">
@@ -291,7 +290,7 @@ export function BodyMapConfigurator() {
                 <X className="size-5" />
               </button>
             </div>
-            <div className="grid max-h-[50vh] grid-cols-2 gap-3 overflow-y-auto p-4">
+            <div className="grid max-h-[50vh] grid-cols-2 gap-2 overflow-y-auto p-3 sm:gap-3 sm:p-4">
               {zoneProducts.map((product) => (
                 <article
                   key={product.id}

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Oswald, Playfair_Display } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
@@ -32,6 +32,12 @@ export const metadata: Metadata = {
   },
   description:
     "Industrial safety products and expert services for India's most demanding industries. PPE, fire safety, LOTO, training, and more — since 1997.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

@@ -71,7 +71,7 @@ function CapabilityDetail({
   return (
     <div
       key={pillar.id}
-      className={`relative min-h-[440px] w-full max-w-[560px] lg:min-h-[520px] lg:max-w-none ${
+      className={`relative min-h-[360px] w-full max-w-[560px] sm:min-h-[400px] lg:min-h-[520px] lg:max-w-none ${
         reducedMotion ? "" : "animate-capability-fade"
       }`}
     >
@@ -94,7 +94,7 @@ function CapabilityDetail({
       </div>
 
       {/* Content — sharp on top of faded wash */}
-      <div className="relative z-10 flex h-full min-h-[440px] flex-col p-6 pb-28 lg:min-h-[520px] lg:p-8 lg:pb-32">
+      <div className="relative z-10 flex h-full min-h-[360px] flex-col p-5 pb-24 sm:min-h-[400px] sm:p-6 sm:pb-28 lg:min-h-[520px] lg:p-8 lg:pb-32">
         <span className="inline-flex w-fit items-center gap-1.5 rounded-md bg-crimson px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-white">
           <Icon className="size-3" strokeWidth={2} aria-hidden />
           {pillar.shortLabel}
@@ -132,14 +132,14 @@ function CapabilityDetail({
       </div>
 
       {/* Glass metrics — inset inside faded area */}
-      <div className="absolute inset-x-5 bottom-5 z-20 overflow-hidden rounded-xl border border-border/80 bg-white/70 backdrop-blur-md sm:inset-x-7 sm:bottom-6">
-        <div className="grid grid-cols-2 divide-x divide-border sm:grid-cols-4">
+      <div className="absolute inset-x-4 bottom-4 z-20 overflow-hidden rounded-xl border border-border/80 bg-white/70 backdrop-blur-md sm:inset-x-7 sm:bottom-6">
+        <div className="grid grid-cols-2 divide-x divide-y divide-border sm:grid-cols-4 sm:divide-y-0">
           {pillar.metrics.map((metric) => (
-            <div key={metric.label} className="px-3 py-3.5 text-center sm:py-4">
-              <p className="text-sm font-bold text-crimson sm:text-base">
+            <div key={metric.label} className="px-2.5 py-2.5 text-center sm:px-3 sm:py-4">
+              <p className="text-xs font-bold text-crimson sm:text-base">
                 {metric.value}
               </p>
-              <p className="mt-1 text-[10px] font-medium uppercase tracking-wider text-muted">
+              <p className="mt-0.5 text-[9px] font-medium uppercase tracking-wider text-muted sm:mt-1 sm:text-[10px]">
                 {metric.label}
               </p>
             </div>
@@ -396,7 +396,7 @@ export function ProductsOverview() {
 
           {/* Mobile node selector */}
           <div
-            className="flex justify-center gap-3 lg:hidden"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:hidden"
             role="tablist"
             aria-label="Capabilities"
           >
@@ -410,17 +410,17 @@ export function ProductsOverview() {
                   role="tab"
                   aria-selected={isActive}
                   onClick={() => selectPillar(pillar.id)}
-                  className={`flex size-[6.75rem] flex-col items-center justify-center rounded-full bg-white px-2 transition-all sm:size-[7.5rem] ${
+                  className={`flex size-20 flex-col items-center justify-center rounded-full bg-white px-1.5 transition-all sm:size-[7.5rem] sm:px-2 ${
                     isActive
                       ? "scale-105 border-2 border-crimson shadow-[0_0_0_4px_rgba(192,0,29,0.12),0_0_20px_rgba(192,0,29,0.2)]"
                       : "border border-border shadow-sm"
                   }`}
                 >
-                  <Icon className="size-4 text-crimson" strokeWidth={1.5} />
-                  <span className="mt-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-charcoal sm:text-[10px]">
+                  <Icon className="size-3.5 text-crimson sm:size-4" strokeWidth={1.5} />
+                  <span className="mt-1 text-[8px] font-bold uppercase tracking-[0.1em] text-charcoal sm:mt-1.5 sm:text-[10px] sm:tracking-[0.12em]">
                     {pillar.shortLabel}
                   </span>
-                  <span className="mt-1 text-center text-[8px] leading-snug text-muted">
+                  <span className="mt-0.5 hidden text-center text-[8px] leading-snug text-muted sm:mt-1 sm:block">
                     {pillar.nodeBlurb}
                   </span>
                 </button>
@@ -429,7 +429,7 @@ export function ProductsOverview() {
           </div>
 
           {/* Detail panel — pack right */}
-          <div className="min-h-[440px] w-full justify-self-end lg:min-h-[520px]">
+          <div className="min-h-[360px] w-full justify-self-end sm:min-h-[400px] lg:min-h-[520px]">
             <CapabilityDetail pillar={active} reducedMotion={reducedMotion} />
           </div>
         </div>

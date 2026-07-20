@@ -22,7 +22,7 @@ export default function ContactPage() {
 
       <section className="bg-crimson-stripe py-10 md:py-12">
         <div className="container-site">
-          <h1 className="font-display text-4xl font-bold text-white md:text-5xl">
+          <h1 className="font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
             Let&apos;s Talk Safety
           </h1>
           <p className="mt-3 max-w-xl text-white/80">
@@ -120,7 +120,7 @@ export default function ContactPage() {
             <iframe
               title="Mark Safety Appliances location map"
               src={company.mapEmbedUrl}
-              className="h-[360px] w-full border-0"
+              className="h-[280px] w-full max-w-full border-0 sm:h-[360px]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />

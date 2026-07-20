@@ -118,18 +118,18 @@ export function IndustriesSection() {
           aria-label="Previous industries"
           disabled={!canScrollPrev}
           onClick={() => scrollByCard(-1)}
-          className="absolute top-1/2 left-3 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-crimson text-white transition-all duration-200 hover:scale-105 hover:bg-crimson-hover active:scale-95 disabled:pointer-events-none disabled:opacity-30 md:left-6 md:flex lg:left-10"
+          className="absolute top-1/2 left-2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-crimson text-white transition-all duration-200 hover:scale-105 hover:bg-crimson-hover active:scale-95 disabled:pointer-events-none disabled:opacity-30 sm:left-3 sm:h-11 sm:w-11 md:left-6 lg:left-10"
         >
-          <ChevronLeft className="h-5 w-5" strokeWidth={2} />
+          <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} />
         </button>
         <button
           type="button"
           aria-label="Next industries"
           disabled={!canScrollNext}
           onClick={() => scrollByCard(1)}
-          className="absolute top-1/2 right-3 z-20 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-crimson text-white transition-all duration-200 hover:scale-105 hover:bg-crimson-hover active:scale-95 disabled:pointer-events-none disabled:opacity-30 md:right-6 md:flex lg:right-10"
+          className="absolute top-1/2 right-2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-crimson text-white transition-all duration-200 hover:scale-105 hover:bg-crimson-hover active:scale-95 disabled:pointer-events-none disabled:opacity-30 sm:right-3 sm:h-11 sm:w-11 md:right-6 lg:right-10"
         >
-          <ChevronRight className="h-5 w-5" strokeWidth={2} />
+          <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} />
         </button>
 
         <div
@@ -151,7 +151,7 @@ export function IndustriesSection() {
                     cardRefs.current[index] = el;
                   }}
                   href="/industries"
-                  className={`group relative block h-[440px] w-[min(72vw,200px)] overflow-hidden bg-black transition-all duration-300 sm:w-[190px] md:h-[500px] md:w-[200px] lg:w-[210px] ${
+                  className={`group relative block h-[380px] w-[min(68vw,180px)] overflow-hidden bg-black transition-all duration-300 sm:h-[440px] sm:w-[190px] md:h-[500px] md:w-[200px] lg:w-[210px] ${
                     isActive
                       ? "ring-1 ring-crimson"
                       : "ring-1 ring-transparent opacity-90 hover:opacity-100"
