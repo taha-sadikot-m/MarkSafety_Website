@@ -130,6 +130,20 @@ export const introMetrics = [
   },
 ] as const;
 
+export const introMobileCta = {
+  text: "Our journey is built on trust, expertise and a commitment to safety.",
+  linkLabel: "Read Our Story",
+  href: "/about",
+  image: {
+    src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&q=80",
+    alt: "White hard hat with safety goggles and gloves on a workbench",
+  },
+} as const;
+
+export const whatWeDoMobileStrip = {
+  label: "One Partner. Every Safety Need.",
+} as const;
+
 export const businessPillars = [
   {
     id: "products",
@@ -138,6 +152,7 @@ export const businessPillars = [
     description:
       "A comprehensive range of workplace safety products from trusted global manufacturers and our own quality-controlled line — ready for India's most demanding sites.",
     nodeBlurb: "Safety products for every workplace.",
+    mobileBlurb: "Premium quality safety products from trusted global brands.",
     cta: "Explore Products",
     href: "/products",
     icon: "shield" as const,
@@ -149,6 +164,13 @@ export const businessPillars = [
       "Fall Protection Systems",
       "Gas Detection Solutions",
       "LOTO & Electrical Safety",
+    ],
+    mobileFeatures: [
+      "PPE & Workwear",
+      "Fire Safety Equipment",
+      "Gas Detection",
+      "Fall Protection",
+      "Electrical Safety",
     ],
     metrics: [
       { value: "500+", label: "Safety Products" },
@@ -164,6 +186,7 @@ export const businessPillars = [
     description:
       "Expert engineering consultancy, EHS documentation, compliance management, and technical services that turn safety policy into everyday practice on site.",
     nodeBlurb: "Engineering, compliance, and maintenance.",
+    mobileBlurb: "Engineering, audits, training and on-site compliance support.",
     cta: "Explore Services",
     href: "/services",
     icon: "gears" as const,
@@ -175,6 +198,13 @@ export const businessPillars = [
       "Safety Training Programmes",
       "Gas Detector Calibration",
       "Fire Extinguisher Maintenance",
+    ],
+    mobileFeatures: [
+      "Risk & Safety Audits",
+      "EHS Documentation",
+      "Safety Training",
+      "Gas Calibration",
+      "Fire Maintenance",
     ],
     metrics: [
       { value: "8+", label: "Core Services" },
@@ -190,6 +220,7 @@ export const businessPillars = [
     description:
       "Customised safety programmes designed for chemical, pharmaceutical, power, manufacturing, and engineering environments — matched to real workplace hazards.",
     nodeBlurb: "Industry solutions for real hazards.",
+    mobileBlurb: "Hazard-matched programmes for plants and industrial sites.",
     cta: "View Solutions",
     href: "/industries",
     icon: "building" as const,
@@ -201,6 +232,13 @@ export const businessPillars = [
       "Manufacturing Floor Programmes",
       "Engineering Site Solutions",
       "Hazard-Mapped PPE Bundles",
+    ],
+    mobileFeatures: [
+      "Chemical & Pharma",
+      "Power & Utilities",
+      "Manufacturing",
+      "Engineering Sites",
+      "PPE Bundles",
     ],
     metrics: [
       { value: "8+", label: "Industries Served" },
@@ -338,6 +376,14 @@ export const safetyProcess = [
     icon: "search" as const,
     image:
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80",
+    deliverables: [
+      "Site Inspection",
+      "Hazard Mapping",
+      "Documentation",
+      "Compliance Review",
+    ],
+    detailsHref: "/services",
+    pdfHref: "#catalogue",
   },
   {
     step: "02",
@@ -346,6 +392,14 @@ export const safetyProcess = [
     icon: "shield" as const,
     image:
       "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=80",
+    deliverables: [
+      "Exposure Analysis",
+      "Risk Ranking",
+      "Priority Matrix",
+      "Mitigation Plan",
+    ],
+    detailsHref: "/services",
+    pdfHref: "#catalogue",
   },
   {
     step: "03",
@@ -354,6 +408,14 @@ export const safetyProcess = [
     icon: "monitor" as const,
     image:
       "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80",
+    deliverables: [
+      "Engineering Drawings",
+      "PPE Specification",
+      "Compliance Plan",
+      "Implementation Roadmap",
+    ],
+    detailsHref: "/services",
+    pdfHref: "#catalogue",
   },
   {
     step: "04",
@@ -362,6 +424,14 @@ export const safetyProcess = [
     icon: "package" as const,
     image:
       "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=600&q=80",
+    deliverables: [
+      "Certified PPE",
+      "Brand Selection",
+      "Quality Assurance",
+      "On-Time Delivery",
+    ],
+    detailsHref: "/products",
+    pdfHref: "#catalogue",
   },
   {
     step: "05",
@@ -370,6 +440,14 @@ export const safetyProcess = [
     icon: "presentation" as const,
     image:
       "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80",
+    deliverables: [
+      "Practical Workshops",
+      "Awareness Modules",
+      "Competency Checks",
+      "Training Records",
+    ],
+    detailsHref: "/services",
+    pdfHref: "#catalogue",
   },
   {
     step: "06",
@@ -378,6 +456,14 @@ export const safetyProcess = [
     icon: "wrench" as const,
     image:
       "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=80",
+    deliverables: [
+      "Calibration",
+      "Preventive Maintenance",
+      "Technical Support",
+      "Service Reports",
+    ],
+    detailsHref: "/services",
+    pdfHref: "#catalogue",
   },
 ] as const;
 

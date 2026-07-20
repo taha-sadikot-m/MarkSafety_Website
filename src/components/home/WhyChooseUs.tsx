@@ -14,11 +14,14 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
+import { JourneyMilestoneMobile } from "@/components/home/JourneyMilestoneMobile";
 import {
   journeyBenefits,
   journeyIntro,
   journeyMilestones,
 } from "@/data/company";
+
+const YEARS_LETTERS = ["Y", "E", "A", "R", "S"] as const;
 
 const milestoneIcons: Record<
   (typeof journeyMilestones)[number]["icon"],
@@ -79,60 +82,41 @@ export function WhyChooseUs() {
           </Reveal>
 
           <div className="relative">
+            {/* Mobile: 30+ YEARS watermark */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -top-2 right-0 z-0 flex select-none flex-col items-end text-charcoal/[0.055] lg:hidden"
+            >
+              <span className="font-display text-[72px] font-bold leading-none tracking-tight sm:text-[100px]">
+                30+
+              </span>
+              <span className="mt-0.5 flex flex-col items-end font-display text-[52px] font-bold leading-[0.88] tracking-tight sm:text-[72px]">
+                {YEARS_LETTERS.map((letter) => (
+                  <span key={letter}>{letter}</span>
+                ))}
+              </span>
+            </div>
+
+            {/* Desktop: classic 30 watermark */}
             <span
               aria-hidden
-              className="pointer-events-none absolute -top-6 right-2 z-0 select-none font-display text-[100px] font-bold leading-none tracking-tight text-charcoal/[0.045] sm:text-[140px] md:-top-10 md:right-4 md:text-[200px] lg:text-[220px]"
+              className="pointer-events-none absolute -top-10 right-4 z-0 hidden select-none font-display text-[200px] font-bold leading-none tracking-tight text-charcoal/[0.045] lg:block lg:text-[220px]"
             >
               30
             </span>
 
-            {/* Mobile / tablet — vertical timeline (no forced min-width) */}
+            {/* Mobile / tablet — scroll-reveal vertical timeline */}
             <ol className="relative z-10 list-none space-y-0 lg:hidden">
-              {journeyMilestones.map((milestone, index) => {
-                const Icon = milestoneIcons[milestone.icon];
-                const isHighlight = milestone.highlight;
-                const isLast = index === journeyMilestones.length - 1;
-
-                return (
-                  <li key={milestone.year} className="relative flex gap-4">
-                    <div className="flex w-12 shrink-0 flex-col items-center self-stretch">
-                      <div
-                        className={`relative z-10 flex size-11 shrink-0 items-center justify-center rounded-full border ${
-                          isHighlight
-                            ? "border-crimson bg-crimson text-white shadow-[0_0_0_4px_rgba(192,0,29,0.1)]"
-                            : "border-crimson/50 bg-white text-charcoal"
-                        }`}
-                      >
-                        <Icon className="size-4" strokeWidth={1.25} />
-                      </div>
-                      {!isLast ? (
-                        <span
-                          aria-hidden
-                          className="mt-1 w-px flex-1 bg-charcoal/15"
-                        />
-                      ) : null}
-                    </div>
-                    <Reveal delayMs={index * 50} className="min-w-0 flex-1 pb-8">
-                      <p className="text-[13px] font-medium tracking-wide text-crimson">
-                        {milestone.year}
-                      </p>
-                      <h3
-                        className={`mt-1 text-xs font-bold uppercase tracking-[0.08em] ${
-                          isHighlight ? "text-crimson" : "text-charcoal"
-                        }`}
-                      >
-                        {milestone.title}
-                      </h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-muted">
-                        {milestone.description}
-                      </p>
-                    </Reveal>
-                  </li>
-                );
-              })}
+              {journeyMilestones.map((milestone, index) => (
+                <JourneyMilestoneMobile
+                  key={milestone.year}
+                  milestone={milestone}
+                  isLast={index === journeyMilestones.length - 1}
+                />
+              ))}
             </ol>
 
-            {/* Desktop — horizontal timeline */}
+            {/* Desktop — horizontal timeline (unchanged) */}
             <div className="relative z-10 hidden px-1 lg:block">
               <div
                 aria-hidden
@@ -189,8 +173,48 @@ export function WhyChooseUs() {
           </div>
         </div>
 
+        {/* Benefits — mobile premium stack */}
         <Reveal delayMs={120}>
-          <div className="mt-16 rounded-2xl border border-border bg-white/80 px-5 py-5 md:mt-20 md:px-8 md:py-6">
+          <div className="mt-16 md:mt-20 lg:hidden">
+            <div className="mb-2 flex items-center gap-3">
+              <span className="h-px w-8 bg-crimson" aria-hidden />
+              <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-charcoal">
+                What This Means For You
+              </p>
+            </div>
+
+            <div>
+              {journeyBenefits.map((benefit) => {
+                const Icon = benefitIcons[benefit.icon];
+                return (
+                  <div
+                    key={benefit.title}
+                    className="flex items-start gap-4 border-b border-border py-5 first:border-t"
+                  >
+                    <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-crimson-soft">
+                      <Icon
+                        className="size-5 text-crimson"
+                        strokeWidth={1.5}
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1 pt-0.5">
+                      <h3 className="text-sm font-semibold text-charcoal">
+                        {benefit.title}
+                      </h3>
+                      <p className="mt-1 text-sm leading-relaxed text-muted">
+                        {benefit.body}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Benefits — desktop panel (unchanged) */}
+        <Reveal delayMs={120}>
+          <div className="mt-16 hidden rounded-2xl border border-border bg-white/80 px-5 py-5 md:mt-20 md:px-8 md:py-6 lg:block">
             <div className="mb-5 flex items-center gap-3">
               <span className="h-px w-8 bg-crimson" aria-hidden />
               <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-charcoal">
@@ -198,7 +222,7 @@ export function WhyChooseUs() {
               </p>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+            <div className="grid gap-5 lg:grid-cols-4 lg:gap-0">
               {journeyBenefits.map((benefit, index) => {
                 const Icon = benefitIcons[benefit.icon];
                 const isLast = index === journeyBenefits.length - 1;

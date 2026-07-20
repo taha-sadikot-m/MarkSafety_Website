@@ -18,6 +18,16 @@ export type ZoneId =
   | "hands"
   | "feet";
 
+export type ChallengeIcon =
+  | "toxic"
+  | "spill"
+  | "fire"
+  | "exposure"
+  | "arc"
+  | "impact"
+  | "dust"
+  | "height";
+
 export const industries: {
   id: IndustryId;
   label: string;
@@ -27,6 +37,7 @@ export const industries: {
   secondaryZones: ZoneId[];
   description: string;
   hazards: string;
+  keyChallenges: { label: string; icon: ChallengeIcon }[];
   image: string;
 }[] = [
   {
@@ -39,6 +50,11 @@ export const industries: {
     description:
       "Managing hazardous chemicals with precision-engineered safety solutions.",
     hazards: "Chemical splash · Inhalation · Spills · Confined space",
+    keyChallenges: [
+      { label: "Toxic Exposure", icon: "toxic" },
+      { label: "Spill Control", icon: "spill" },
+      { label: "Fire Risk", icon: "fire" },
+    ],
     image:
       "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1000&q=80",
   },
@@ -52,6 +68,11 @@ export const industries: {
     description:
       "Ensuring clean, compliant and safe environments in high-precision operations.",
     hazards: "APIs · Cleanroom · Exposure · Cross-contamination",
+    keyChallenges: [
+      { label: "API Exposure", icon: "exposure" },
+      { label: "Cleanroom", icon: "dust" },
+      { label: "Contamination", icon: "toxic" },
+    ],
     image:
       "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1000&q=80",
   },
@@ -65,6 +86,11 @@ export const industries: {
     description:
       "Protecting people and assets in complex, high-risk process industries.",
     hazards: "Flammable atmospheres · H₂S · Height · Hot work",
+    keyChallenges: [
+      { label: "Flammable Gas", icon: "fire" },
+      { label: "H₂S Exposure", icon: "toxic" },
+      { label: "Work at Height", icon: "height" },
+    ],
     image:
       "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80",
   },
@@ -78,6 +104,11 @@ export const industries: {
     description:
       "Delivering safety for power generation, transmission and distribution.",
     hazards: "Arc flash · Height · Confined space · Switching",
+    keyChallenges: [
+      { label: "Arc Flash", icon: "arc" },
+      { label: "Work at Height", icon: "height" },
+      { label: "Switching", icon: "impact" },
+    ],
     image:
       "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=80",
   },
@@ -91,6 +122,11 @@ export const industries: {
     description:
       "Enabling safety manufacturing and fabrication across heavy engineering sectors.",
     hazards: "Impact · Cuts · Noise · Falling objects",
+    keyChallenges: [
+      { label: "Impact Injury", icon: "impact" },
+      { label: "Falling Objects", icon: "height" },
+      { label: "Noise Risk", icon: "dust" },
+    ],
     image:
       "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=80",
   },
@@ -104,6 +140,11 @@ export const industries: {
     description:
       "Building safer assembly lines and workplaces in fast-paced automotive plants.",
     hazards: "Welding · Chemicals · Noise · Repetitive tasks",
+    keyChallenges: [
+      { label: "Welding Fume", icon: "fire" },
+      { label: "Chemical Use", icon: "spill" },
+      { label: "Noise Risk", icon: "impact" },
+    ],
     image:
       "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1000&q=80",
   },
@@ -117,6 +158,11 @@ export const industries: {
     description:
       "Preventing electrical hazards and ensuring compliance in every connection.",
     hazards: "Shock · Arc flash · Live work · Switchgear",
+    keyChallenges: [
+      { label: "Electric Shock", icon: "arc" },
+      { label: "Arc Flash", icon: "fire" },
+      { label: "Live Work", icon: "impact" },
+    ],
     image:
       "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1000&q=80",
   },
@@ -130,6 +176,11 @@ export const industries: {
     description:
       "Addressing unique risks in fertilizer production and handling.",
     hazards: "Ammonia · Dust · Corrosives · Confined space",
+    keyChallenges: [
+      { label: "Ammonia Gas", icon: "toxic" },
+      { label: "Dust Exposure", icon: "dust" },
+      { label: "Corrosives", icon: "spill" },
+    ],
     image:
       "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1000&q=80",
   },

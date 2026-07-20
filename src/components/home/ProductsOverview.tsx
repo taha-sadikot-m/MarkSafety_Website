@@ -10,6 +10,7 @@ import {
   Shield,
   type LucideIcon,
 } from "lucide-react";
+import { ProductsOverviewMobile } from "@/components/home/ProductsOverviewMobile";
 import { businessPillars } from "@/data/company";
 
 type Pillar = (typeof businessPillars)[number];
@@ -304,133 +305,104 @@ export function ProductsOverview() {
       ref={sectionRef}
       id="what-we-do"
       aria-labelledby={headingId}
-      className="relative min-h-[100svh] overflow-hidden bg-surface"
+      className="relative overflow-hidden"
     >
-      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1680px] flex-col px-5 py-16 sm:px-8 lg:px-10 lg:py-20 xl:px-14">
-        <header className="mx-auto w-full max-w-3xl text-center">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-crimson">
-            What We Do
-          </p>
-          <h2
-            id={headingId}
-            className="font-display mt-4 text-3xl font-bold leading-[1.15] text-charcoal md:text-4xl xl:text-5xl"
-          >
-            One Partner. Three Capabilities.
-            <br />
-            <span className="text-crimson">Infinite Protection.</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
-            Products, engineering services, and industry solutions — connected
-            as one safety ecosystem, not separate offerings.
-          </p>
-        </header>
+      <h2 id={headingId} className="sr-only">
+        What We Do — One Partner. Three Capabilities. Infinite Protection.
+      </h2>
 
-        <div className="mt-12 grid w-full flex-1 gap-10 lg:mt-14 lg:grid-cols-2 lg:items-center lg:gap-16 xl:gap-24">
-          {/* Orbit — desktop, pack left */}
-          <div
-            className="relative mx-auto hidden aspect-square w-full max-w-[460px] justify-self-start lg:mx-0 lg:block xl:max-w-[500px]"
-            onPointerEnter={pauseOrbit}
-            onPointerLeave={scheduleResume}
-          >
-            <svg
-              className={`absolute inset-[8%] z-0 h-[84%] w-[84%] transition-opacity duration-700 ${
-                expanded || reducedMotion ? "opacity-100" : "opacity-0"
-              }`}
-              viewBox="0 0 100 100"
-              aria-hidden
-            >
-              <circle
-                cx="50"
-                cy="50"
-                r="44"
-                fill="none"
-                stroke="rgba(44,44,44,0.22)"
-                strokeWidth="0.4"
-                strokeDasharray="1.2 1.4"
-              />
-              {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => {
-                const rad = (deg * Math.PI) / 180;
-                const x = 50 + Math.cos(rad) * 44;
-                const y = 50 - Math.sin(rad) * 44;
-                return (
-                  <circle
-                    key={deg}
-                    cx={x}
-                    cy={y}
-                    r="0.7"
-                    fill="rgba(192,0,29,0.85)"
-                  />
-                );
-              })}
-            </svg>
+      <div className="lg:hidden">
+        <ProductsOverviewMobile />
+      </div>
 
+      <div className="hidden min-h-[100svh] bg-surface lg:block">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1680px] flex-col px-5 py-16 sm:px-8 lg:px-10 lg:py-20 xl:px-14">
+          <header className="mx-auto w-full max-w-3xl text-center">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-crimson">
+              What We Do
+            </p>
+            <p className="font-display mt-4 text-3xl font-bold leading-[1.15] text-charcoal md:text-4xl xl:text-5xl">
+              One Partner. Three Capabilities.
+              <br />
+              <span className="text-crimson">Infinite Protection.</span>
+            </p>
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
+              Products, engineering services, and industry solutions — connected
+              as one safety ecosystem, not separate offerings.
+            </p>
+          </header>
+
+          <div className="mt-12 grid w-full flex-1 gap-10 lg:mt-14 lg:grid-cols-2 lg:items-center lg:gap-16 xl:gap-24">
             <div
-              className="absolute left-1/2 top-1/2 z-30 flex size-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-crimson/30 bg-white shadow-[0_0_32px_rgba(192,0,29,0.18)] xl:size-28"
-              aria-hidden
+              className="relative mx-auto aspect-square w-full max-w-[460px] justify-self-start lg:mx-0 xl:max-w-[500px]"
+              onPointerEnter={pauseOrbit}
+              onPointerLeave={scheduleResume}
             >
-              <span className="font-display text-lg font-bold tracking-tight text-charcoal xl:text-xl">
-                mark<span className="text-crimson">!</span>
-              </span>
-              <span className="mt-0.5 text-[8px] font-semibold uppercase tracking-[0.28em] text-charcoal/80 xl:text-[9px]">
-                Safety
-              </span>
+              <svg
+                className={`absolute inset-[8%] z-0 h-[84%] w-[84%] transition-opacity duration-700 ${
+                  expanded || reducedMotion ? "opacity-100" : "opacity-0"
+                }`}
+                viewBox="0 0 100 100"
+                aria-hidden
+              >
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="44"
+                  fill="none"
+                  stroke="rgba(44,44,44,0.22)"
+                  strokeWidth="0.4"
+                  strokeDasharray="1.2 1.4"
+                />
+                {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => {
+                  const rad = (deg * Math.PI) / 180;
+                  const x = 50 + Math.cos(rad) * 44;
+                  const y = 50 - Math.sin(rad) * 44;
+                  return (
+                    <circle
+                      key={deg}
+                      cx={x}
+                      cy={y}
+                      r="0.7"
+                      fill="rgba(192,0,29,0.85)"
+                    />
+                  );
+                })}
+              </svg>
+
+              <div
+                className="absolute left-1/2 top-1/2 z-30 flex size-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-crimson/30 bg-white shadow-[0_0_32px_rgba(192,0,29,0.18)] xl:size-28"
+                aria-hidden
+              >
+                <span className="font-display text-lg font-bold tracking-tight text-charcoal xl:text-xl">
+                  mark<span className="text-crimson">!</span>
+                </span>
+                <span className="mt-0.5 text-[8px] font-semibold uppercase tracking-[0.28em] text-charcoal/80 xl:text-[9px]">
+                  Safety
+                </span>
+              </div>
+
+              {businessPillars.map((pillar, index) => (
+                <OrbitNode
+                  key={pillar.id}
+                  pillar={pillar}
+                  active={activeId === pillar.id}
+                  expanded={expanded}
+                  reducedMotion={reducedMotion}
+                  angleDeg={
+                    reducedMotion
+                      ? homeAngles[pillar.id]
+                      : slotAngleForPillar(index, rotationIndex)
+                  }
+                  onSelect={() => selectPillar(pillar.id)}
+                  onHoverSelect={() => hoverSelectPillar(pillar.id)}
+                />
+              ))}
             </div>
 
-            {businessPillars.map((pillar, index) => (
-              <OrbitNode
-                key={pillar.id}
-                pillar={pillar}
-                active={activeId === pillar.id}
-                expanded={expanded}
-                reducedMotion={reducedMotion}
-                angleDeg={
-                  reducedMotion
-                    ? homeAngles[pillar.id]
-                    : slotAngleForPillar(index, rotationIndex)
-                }
-                onSelect={() => selectPillar(pillar.id)}
-                onHoverSelect={() => hoverSelectPillar(pillar.id)}
-              />
-            ))}
-          </div>
-
-          {/* Mobile node selector */}
-          <div
-            className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:hidden"
-            role="tablist"
-            aria-label="Capabilities"
-          >
-            {businessPillars.map((pillar) => {
-              const Icon = pillarIcons[pillar.icon];
-              const isActive = activeId === pillar.id;
-              return (
-                <button
-                  key={pillar.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => selectPillar(pillar.id)}
-                  className={`flex size-20 flex-col items-center justify-center rounded-full bg-white px-1.5 transition-all sm:size-[7.5rem] sm:px-2 ${
-                    isActive
-                      ? "scale-105 border-2 border-crimson shadow-[0_0_0_4px_rgba(192,0,29,0.12),0_0_20px_rgba(192,0,29,0.2)]"
-                      : "border border-border shadow-sm"
-                  }`}
-                >
-                  <Icon className="size-3.5 text-crimson sm:size-4" strokeWidth={1.5} />
-                  <span className="mt-1 text-[8px] font-bold uppercase tracking-[0.1em] text-charcoal sm:mt-1.5 sm:text-[10px] sm:tracking-[0.12em]">
-                    {pillar.shortLabel}
-                  </span>
-                  <span className="mt-0.5 hidden text-center text-[8px] leading-snug text-muted sm:mt-1 sm:block">
-                    {pillar.nodeBlurb}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Detail panel — pack right */}
-          <div className="min-h-[360px] w-full justify-self-end sm:min-h-[400px] lg:min-h-[520px]">
-            <CapabilityDetail pillar={active} reducedMotion={reducedMotion} />
+            <div className="min-h-[360px] w-full justify-self-end sm:min-h-[400px] lg:min-h-[520px]">
+              <CapabilityDetail pillar={active} reducedMotion={reducedMotion} />
+            </div>
           </div>
         </div>
       </div>

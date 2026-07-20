@@ -17,6 +17,7 @@ import {
 import { Reveal } from "@/components/ui/Reveal";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
+import { SafetyProcessMobile } from "@/components/home/SafetyProcessMobile";
 import {
   safetyProcess,
   safetyProcessCta,
@@ -175,143 +176,101 @@ function ProcessHexRing() {
   );
 }
 
-function MobileStepList() {
-  return (
-    <ul className="mt-10 space-y-3 lg:hidden">
-      {safetyProcess.map((item, index) => {
-        const Icon = stepIcons[item.icon];
-        return (
-          <Reveal key={item.step} delayMs={index * 40}>
-            <li className="flex gap-4 border border-white/10 bg-white/[0.04] p-4">
-              <div className="relative w-14 shrink-0">
-                <HexFrame>
-                  <div className="relative size-full">
-                    <Image
-                      src={item.image}
-                      alt=""
-                      fill
-                      sizes="56px"
-                      className="object-cover opacity-50"
-                    />
-                    <div className="absolute inset-0 bg-footer/60" />
-                  </div>
-                </HexFrame>
-              </div>
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2">
-                  <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-crimson text-[10px] font-semibold text-white">
-                    {item.step}
-                  </span>
-                  <Icon
-                    className="size-4 shrink-0 text-crimson"
-                    strokeWidth={1.75}
-                    aria-hidden
-                  />
-                  <h3 className="text-sm font-semibold text-white">{item.title}</h3>
-                </div>
-                <p className="mt-1.5 text-sm leading-relaxed text-white/70">
-                  {item.body}
-                </p>
-              </div>
-            </li>
-          </Reveal>
-        );
-      })}
-    </ul>
-  );
-}
-
 export function SafetyProcess() {
   return (
-    <section className="relative overflow-hidden bg-footer py-24 md:py-32">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        aria-hidden
-      >
-        <Image
-          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2000&q=60"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
+    <section className="relative overflow-hidden bg-footer">
+      <div className="lg:hidden">
+        <SafetyProcessMobile />
       </div>
 
-      <div className="container-site relative">
-        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.25fr)] lg:gap-8 xl:gap-12">
-          <div>
-            <Reveal>
-              <div className="flex items-center gap-3">
-                <span className="h-px w-8 bg-crimson" aria-hidden />
-                <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-crimson">
-                  {safetyProcessIntro.eyebrow}
-                </p>
-              </div>
-              <h2 className="font-display mt-4 max-w-md text-3xl font-bold text-white md:text-5xl">
-                {safetyProcessIntro.title}
-              </h2>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70 md:text-base">
-                {safetyProcessIntro.body}
-              </p>
-            </Reveal>
-
-            <Reveal delayMs={80}>
-              <div className="mt-10">
-                <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-crimson">
-                  {safetyProcessPromise.title}
-                </p>
-                <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/75">
-                  {safetyProcessPromise.body}
-                </p>
-                <Button
-                  href={safetyProcessCta.href}
-                  variant="primary"
-                  size="md"
-                  className="mt-5"
-                >
-                  {safetyProcessCta.linkLabel}
-                  <ArrowRight className="size-4" strokeWidth={2} />
-                </Button>
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delayMs={120} className="hidden lg:block">
-            <ProcessHexRing />
-          </Reveal>
+      <div className="relative hidden py-24 md:py-32 lg:block">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          aria-hidden
+        >
+          <Image
+            src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2000&q=60"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
         </div>
 
-        <MobileStepList />
-
-        <Reveal delayMs={100}>
-          <div className="mt-14 grid gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-3 sm:grid-cols-2 sm:gap-3 lg:mt-16 lg:grid-cols-4 lg:p-4">
-            {safetyProcessPillars.map((pillar) => {
-              const Icon = pillarIcons[pillar.icon];
-              return (
-                <div
-                  key={pillar.title}
-                  className="flex gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-5 transition-colors hover:border-crimson/30 hover:bg-white/[0.05]"
-                >
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-crimson/15">
-                    <Icon
-                      className="size-5 text-crimson"
-                      strokeWidth={1.75}
-                      aria-hidden
-                    />
-                  </span>
-                  <div>
-                    <h3 className="text-sm font-semibold text-white">
-                      {pillar.title}
-                    </h3>
-                    <p className="mt-1 text-xs leading-relaxed text-white/65 md:text-sm">
-                      {pillar.body}
-                    </p>
-                  </div>
+        <div className="container-site relative">
+          <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.25fr)] lg:gap-8 xl:gap-12">
+            <div>
+              <Reveal>
+                <div className="flex items-center gap-3">
+                  <span className="h-px w-8 bg-crimson" aria-hidden />
+                  <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-crimson">
+                    {safetyProcessIntro.eyebrow}
+                  </p>
                 </div>
-              );
-            })}
+                <h2 className="font-display mt-4 max-w-md text-3xl font-bold text-white md:text-5xl">
+                  {safetyProcessIntro.title}
+                </h2>
+                <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70 md:text-base">
+                  {safetyProcessIntro.body}
+                </p>
+              </Reveal>
+
+              <Reveal delayMs={80}>
+                <div className="mt-10">
+                  <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-crimson">
+                    {safetyProcessPromise.title}
+                  </p>
+                  <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/75">
+                    {safetyProcessPromise.body}
+                  </p>
+                  <Button
+                    href={safetyProcessCta.href}
+                    variant="primary"
+                    size="md"
+                    className="mt-5"
+                  >
+                    {safetyProcessCta.linkLabel}
+                    <ArrowRight className="size-4" strokeWidth={2} />
+                  </Button>
+                </div>
+              </Reveal>
+            </div>
+
+            <Reveal delayMs={120}>
+              <ProcessHexRing />
+            </Reveal>
           </div>
-        </Reveal>
+
+          <Reveal delayMs={100}>
+            <div className="mt-14 grid gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-3 sm:grid-cols-2 sm:gap-3 lg:mt-16 lg:grid-cols-4 lg:p-4">
+              {safetyProcessPillars.map((pillar) => {
+                const Icon = pillarIcons[pillar.icon];
+                return (
+                  <div
+                    key={pillar.title}
+                    className="flex gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-5 transition-colors hover:border-crimson/30 hover:bg-white/[0.05]"
+                  >
+                    <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-crimson/15">
+                      <Icon
+                        className="size-5 text-crimson"
+                        strokeWidth={1.75}
+                        aria-hidden
+                      />
+                    </span>
+                    <div>
+                      <h3 className="text-sm font-semibold text-white">
+                        {pillar.title}
+                      </h3>
+                      <p className="mt-1 text-xs leading-relaxed text-white/65 md:text-sm">
+                        {pillar.body}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

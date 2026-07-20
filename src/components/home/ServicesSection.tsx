@@ -15,6 +15,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { ServicesArcMobile } from "@/components/home/ServicesArcMobile";
 import {
   services,
   servicesIntro,
@@ -217,38 +218,6 @@ function ServicesHub() {
   );
 }
 
-function ServicesList() {
-  return (
-    <ul className="mt-8 space-y-1 sm:mt-10">
-      {services.map((service, index) => {
-        const Icon = iconMap[service.icon];
-        return (
-          <Reveal key={service.id} delayMs={index * 40}>
-            <li>
-              <Link
-                href="/services"
-                className="group flex items-start gap-4 rounded-lg px-1 py-2.5 transition-colors duration-200 hover:bg-crimson-tint/70"
-              >
-                <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-crimson bg-white shadow-sm transition-transform duration-300 group-hover:scale-105 sm:size-12">
-                  <Icon className="size-5 text-crimson" strokeWidth={1.5} />
-                </span>
-                <span className="min-w-0 pt-1">
-                  <span className="block text-sm font-semibold text-charcoal">
-                    {service.title}
-                  </span>
-                  <span className="mt-0.5 block text-sm leading-relaxed text-muted">
-                    {service.oneLiner}
-                  </span>
-                </span>
-              </Link>
-            </li>
-          </Reveal>
-        );
-      })}
-    </ul>
-  );
-}
-
 function IntroCopy() {
   return (
     <div className="relative z-10 flex max-w-md flex-col lg:max-w-none">
@@ -316,7 +285,7 @@ export function ServicesSection() {
           </Reveal>
 
           <div className="lg:hidden">
-            <ServicesList />
+            <ServicesArcMobile />
           </div>
         </div>
       </div>
